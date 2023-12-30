@@ -13,7 +13,8 @@ async function getUserCredentials() {
     rl.question('Enter your username: ', (username) => {
       rl.question('Enter your password: ', (password) => {
         rl.close();
-        resolve({ username, password });
+        process.stdout.write('\u001b[2F\u001b[J'); // Clear console (may not work in all environments)
+          resolve({ username, password });
       });
     });
   });
